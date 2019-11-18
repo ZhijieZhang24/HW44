@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<p><a href="{{ url_for('add_friend')}}"> Add a new friend</a></p>
+Hello world!
+
+
+<p><a href="{{ url_for('.add_singer')}}"> Add a new singer</a></p>
 
 {% with messages = get_flashed_messages() %}
  {% if messages %}
@@ -16,31 +19,31 @@
    {% endwith %}
  </div>
 
-{% if songs %}
+{% if singer %}
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th></th>
+                <th>first name</th>
+                <th>last name</th>
             </tr>
         </thead>
 
         <tbody>
-            {% for row in songs %}
+            {% for row in singer %}
             <tr>
-                <td> {{ row.songID}}</td>
-                <td> {{ row.Name}}</td>
-                <td> {{ row.Singer}}</td>
-                <td> {{ row.Type}}</td>
-                <td> {{ row.Year}}</td>
+                <td> {{ row.singerid }}</td>
+                <td> {{ row.first_name }}</td>
+                <td> {{ row.last_name }}</td>
+                  <td>
 
-                    <td>
-          <form action="{{ url_for('songs', song_id=row.song_ID) }}" method="POST">
+        <form action="{{ url_for('singer', singer_id=row.singerid) }}" method="POST">
+
             <input type="submit" value="Details" class="btn btn-info" />
-          </form>
-        </td>
 
+        </form>
+
+      </td>
             </tr>
             {% endfor %}
         </tbody>

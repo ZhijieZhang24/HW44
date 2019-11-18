@@ -4,30 +4,29 @@
   <head>
     <meta charset="utf-8">
     <title>{{ pageTitle }}</title>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <style>
-#flash { display:none; background-color:white; color:red}
+#flash { display:none; background-color:white; color:green}
 </style>
 
 <script>
-    $(function() {
-   $('#flash').delay(500).fadeIn('normal', function() {
-      $(this).delay(2500).fadeOut();
-   });
-});
+      $(function() {
+      $('#flash').delay(400).fadeIn('normal', function() {
+        $(this).delay(2000).fadeOut();
+      });
+  });
 </script>
 
-</head>
+  </head>
 
   <body>
-      <h1> Zhijie's Songs </h1>
-      <hr>
+    <h1> Singer </h1>
+    <hr>
+      {% block body%}
 
-      {% block body %}
-
-	  {% endblock %}
-
- </body>
+      {% endblock %}
+  </body>
 
 </html>
